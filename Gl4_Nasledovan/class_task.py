@@ -25,4 +25,3 @@ class Aircraft(Transport):
     def __repr__(self):
         return f'Номер: {self.number}; Мощность: {self.power}; Стоимость: {self.cost}; Марка: {self.brand}; ' \
                f'Макс. высота полета: {self.max_flight_altitude}'
-
