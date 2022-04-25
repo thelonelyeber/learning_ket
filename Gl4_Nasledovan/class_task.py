@@ -16,8 +16,8 @@ class Automobile(Transport):
         self.brand = str(input('Введите имя: '))
 
     def __repr__(self):
-        return f'Мощность: {self.power}; Стоимость: {self.cost}; Марка: {self.brand}; Пробег: {self.mileage}; ' \
-               f'Прохождение техосмотра: {self.tech_inspection}'
+        return f'Номер: {self.number}; Мощность: {self.power}; Стоимость: {self.cost}; Марка: {self.brand}; ' \
+               f'Пробег: {self.mileage}; Прохождение техосмотра: {self.tech_inspection} '
 
 
 class Aircraft(Transport):
@@ -41,27 +41,26 @@ i = 0
 
 while True:
     com = input('Введите комманду: ')
-    if com == 'create':
+    if com == '1':
         power = input('Введите мощность машины: ')
         cost = input('Введите стоимость: ')
         number = input('Введите номер машины: ')
         brand = input('Введите марку машины: ')
         mileage = input('Введите пробег: ')
-        tech_inspection = input('Пройден ли техосмотр (y/n)')
+        tech_inspection = input('Пройден ли техосмотр (y/n): ')
         if tech_inspection == 'y':
             tech_inspection = True
         elif tech_inspection == 'n':
             tech_inspection = False
         else:
-            print('Произошла ошибка!')
+            print('Используйте англ раскладку и введите "y" для подтверждения или "n" в ином случае!')
         auto = Automobile(power, cost, number, brand, mileage, tech_inspection)
         car_list.append(auto)
         i += 1
-    elif com == 'red brand':
-        i -= 1
-        car_list[i].red_brand()
-        i += 1
+    elif com == '2':  # Вывод всех машин
+        count = 1
+        for car in car_list:
+            print(f'{count}) {car}')
+            count += 1
     elif com == 'exit':
-        for ii in range(i):
-            print(car_list[ii])
         break
