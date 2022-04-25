@@ -37,13 +37,14 @@ while True:
 
     elif com == '3':  # Получение стоимости и пробега определенного автомобиля
         i = 1
-        print('Выберите автомобиль:')
-        for car in cars_list:
-            print(f'    {i}) Номер - {car.number}, марка - {car.brand}')
-            i += 1
-        num = int(input('Выберите порядковый номер автомобиля: ')) - 1
-        print(f'    Пробег данного автомобиля составляет - {cars_list[num].mileage}\n'
-              f'    Стоимость данного автомобиля составляет - {cars_list[num].cost}')
+        if len(cars_list) > 0:
+            print('Выберите автомобиль:')
+            for car in cars_list:
+                print(f'    {i}) Номер - {car.number}, марка - {car.brand}')
+                i += 1
+            num = int(input('Выберите порядковый номер автомобиля: ')) - 1
+            print(f'    Пробег данного автомобиля составляет - {cars_list[num].mileage}\n'
+                  f'    Стоимость данного автомобиля составляет - {cars_list[num].cost}')
 
     elif com == '4':  # Подсчитать налог с регистрации всех машин
         all_cost = 0
@@ -76,12 +77,13 @@ while True:
 
     elif com == '7':  # Подсчитать налог с регистрации всех самолетов
         all_cost = 0
-        for air in airplanes_list:
-            all_cost += int(air.cost)
-        tax = all_cost / 100 * 3
-        print(f'Налог на регистрации всех самолетов составляет: {tax}')
+        if len(airplanes_list) > 0:
+            for air in airplanes_list:
+                all_cost += int(air.cost)
+            tax = all_cost / 100 * 3
+            print(f'Налог на регистрации всех самолетов составляет: {tax}')
 
-    elif com == '8' or com == 'power cost brand airplane':  # Определить мощность, стоимость и марку самого дорогого самолета
+    elif com == '8':  # Определить мощность, стоимость и марку самого дорогого самолета
         cost = 0
         for air in airplanes_list:
             if int(air.cost) > cost:
@@ -118,7 +120,7 @@ while True:
               '    6 - Выяснить для заданного самолета мощность и максимальную высоту полета\n'
               '    7 - Подсчитать налог с регистрации всех самолетов\n'
               '    8 - Определить мощность, стоимость и марку самого дорогого самолета\n'
-              '    9 - Получить полную информацию обо всех автомобилях и самолетах\n')
+              '    9 - Получить полную информацию обо всех автомобилях и самолетах')
 
     elif com == 'exit':
         break
