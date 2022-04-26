@@ -48,5 +48,13 @@ while True:
         num = int(input('Я выбираю - ')) - 1
         pharmacy_list[num].max_cost()
 
+    elif com == 'help':
+        print('Вот список команд:'
+              '    create - Добавить в список аптеку'
+              '    add pill - Добавить лекарство в аптеку'
+              '    total cost - Узнать сумму стоимости всех лекарств'
+              '    max cost - Узнать максимальну цену лекартсва в аптеке'
+              '    full info - Получить полную информацию об аптеке')
+
     elif com == 'exit':
         break
