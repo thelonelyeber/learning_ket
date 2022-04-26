@@ -39,5 +39,14 @@ while True:
         num = int(input('Я выбираю - ')) - 1
         pharmacy_list[num].total_cost()
 
+    elif com == 'max cost':
+        i = 1
+        print('Выберите аптеку в которой вы хотите узнать максимальную цену лекартва')
+        for phar in pharmacy_list:
+            print(f'{i}) {phar.data["name"]}')
+            i += 1
+        num = int(input('Я выбираю - ')) - 1
+        pharmacy_list[num].max_cost()
+
     elif com == 'exit':
         break

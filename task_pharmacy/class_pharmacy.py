@@ -20,7 +20,7 @@ class Pharmacy(object):
 
     """Выводим самую высокую цену за лекартсво"""
 
-    def max_price(self):
+    def max_cost(self):
         cost = max(self.data['preparats']['cost'])
         print(f'Максимальная цена на лекарство в данной аптеке: {cost} р.')
 
